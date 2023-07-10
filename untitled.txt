@@ -1,0 +1,150 @@
+1.What does one mean by the term "machine learning"?
+==> Machine learning refers to a subfield of artificial intelligence (AI) that focuses on developing algorithms and models that enable computers to learn from data without being explicitly programmed. 
+==> The central idea behind machine learning is to enable machines to recognize patterns, make predictions, or perform tasks based on the patterns and insights derived from the data
+
+
+2.Can you think of 4 distinct types of issues where it shines?
+==> automatically driving vehicle, spam detection , Image and Object recognition ,NLP(Natural Language Processing)
+
+3.What is a labeled training set, and how does it work?
+==>A labeled training set is a fundamental component in supervised machine learning,where the training data consists of input samples (features) along with their corresponding desired output or target values (labels). 
+==>The purpose of using labeled training data is to enable the machine learning model to understand the relationship between the inputs and their corresponding outputs
+
+4.What are the two most important tasks that are supervised?
+==> Classification :-Classification is a supervised learning task where the goal is to predict the category or class label of a given input sample. 
+==> Regression :- Regression is another important supervised learning task that deals with predicting a continuous or numerical value for a given input. 
+
+5.Can you think of four examples of unsupervised tasks?
+==>
+1)Clustering:-Clustering is a common unsupervised task where the goal is to group similar data points into clusters based on their intrinsic similarities.
+2)Dimension Reduction:-Dimensionality reduction is the process of reducing the number of input features while preserving the most important information.
+3)Visualization:-Anomaly detection involves identifying rare or unusual observations in the data that deviate significantly from the norm.
+4)Anamoly Detection:- Density estimation is about estimating the probability distribution of the input data.
+
+6.State the machine learning model that would be best to make a robot walk through various unfamiliar terrains?
+==>  Reinforced Learning, where the robot can learn from response of the terrain to optimize itself
+==> The goal of the agent is to learn a policy, i.e., a mapping of states to actions, that helps it navigate the terrains effectively and receive maximum rewards.
+==> In the context of a walking robot, the agent (robot) interacts with the environment (unfamiliar terrains) and receives feedback in the form of rewards or penalties based on its actions. 
+
+7.Which algorithm will you use to divide your customers into different groups?
+==> I would use a clustering algorithm. Clustering is an unsupervised learning technique that groups similar data points together based on certain features or characteristics. 
+==> Some important clustering algorithm include :- K-means, Hierarchy Clustering , DBSCAN   
+
+8.Will you consider the problem of spam detection to be a supervised or unsupervised learning problem?
+==> Spam detection is considered a supervised learning problem.
+==> The goal of the model is to learn the patterns and characteristics of spam emails from the labeled training data so that it can accurately classify new, unseen emails as spam or non-spam.
+
+9.What is the concept of an online learning system?
+==> The concept of an online learning system, also known as online machine learning or incremental learning,
+    revolves around the ability of a model to continuously learn and adapt from new data as it arrives in a streaming or sequential manner.
+==> Examples of applications for online learning include: Fraud detection ,Online recommendation systems:
+
+10.What is out-of-core learning, and how does it differ from core learning?
+==> Out-of-core learning, also known as "out-of-memory" or "online learning with large datasets," is a specific approach in machine learning that deals with training models on data that does not fit entirely into the computer's memory (RAM). 
+==> In contrast, core learning assumes that the entire dataset can be loaded into memory at once during the training process
+
+11.What kind of learning algorithm makes predictions using a similarity measure?
+==> A learning algorithm that makes predictions using a similarity measure is known as an instance-based learning algorithm or a lazy learning algorithm.
+==> Instance-based learning algorithms store the training instances in memory and make predictions based on the similarity between the new instance to be classified and the stored instances.
+
+
+
+12.What the difference between a model parameter and a hyperparameter in a learning algorithm?
+*Model parameters :-  Model parameters are the internal variables that the learning algorithm optimizes during the training process. 
+==>  These parameters are learned from the training data and define the specific characteristics and behavior of the trained model.
+==>  Model parameters are the values that the algorithm adjusts to fit the data and make accurate predictions.
+==>  The values of model parameters are determined by the learning algorithm itself through techniques like optimization methods or analytical solutions 
+==>  Examples of model parameters can vary depending on the learning algorithm and the specific model architecture.
+
+
+    
+*Hyperparameters :- Hyperparameters are external to the model and cannot be directly learned from the training data.
+ ==>  Hyperparameters act as configuration settings for the learning algorithm, influencing its learning process and the resulting model.
+ ==>  Hyperparameters are typically set by the user or data scientist and are not optimized directly during the training process.
+ ==>  Examples of hyperparameters include the learning rate of an optimization algorithm the number of clusters in a clustering algorithm.
+
+    
+13.What are the criteria that model-based learning algorithms look for? What is the most popular method they use to achieve success? What method do they use to make predictions
+
+==> Model-based learning algorithms look for specific criteria when learning from data. 
+==> The primary criteria that model-based learning algorithms consider include: Goodness of Fit,Model Complexity,Interpretability
+    
+==>  To achieve success, model-based learning algorithms typically employ a two-step process:
+
+1) Model Training = Model-based algorithms learn from the data by estimating the model's parameters based on the training dataset.
+==>  The goal is to find the optimal parameter values that best fit the training data according to a predefined criterion 
+        
+2) Model Inference/Prediction = Once the model is trained, it is used to make predictions on new, unseen data.
+==> The algorithm applies the learned model's parameters and the input features of the new data to produce predictions or estimate values.
+
+==> The specific method used for making predictions depends on the model type and the learning algorithm :- 
+    
+    * Linear Regression: Predictions are made by taking a linear combination of the input features weighted by the learned coefficients.
+    * Decision Trees: Predictions are made by traversing the tree structure based on the input features and the learned splitting criteria at each node.
+    * Neural Networks: Predictions are made by passing the input features through the network's layers, with the learned weights and biases applied to compute the output.
+    * Support Vector Machines: Predictions are made by classifying the input features based on their position relative to the learned decision boundary (hyperplane).
+
+
+14.Can you name four of the most important Machine Learning challenges
+ 
+1) Data Quality and Quantity:- The quality and quantity of data play a vital role in the performance and generalization capability of machine learning models. 
+==> Data may contain noise, missing values, or bias, which can affect the model's accuracy and reliability.
+==> Acquiring high-quality data and ensuring its proper preprocessing are ongoing challenges.
+    
+2) Overfitting and Generalization:- Overfitting occurs when a machine learning model performs well on the training data but fails to generalize to unseen data.
+==> Achieving good generalization and avoiding overfitting by finding the right balance between model complexity and simplicity is a significant challenge in machine learning.
+    
+3) Interpretability and Explainability:- As machine learning models become more complex, achieving interpretability and explainability becomes crucial, especially in domains where decisions impact human lives.
+
+4) Ethics, Bias, and Fairness:- Machine learning models can inadvertently inherit biases present in the training data, which can lead to unfair or discriminatory outcomes. 
+    
+    
+15.What happens if the model performs well on the training data but fails to generalize the results to new situations? Can you think of three different options?
+
+==> If a model performs well on the training data but fails to generalize to new situations, it indicates an issue with overfitting. 
+==> Overfitting occurs when a model becomes too complex and learns to capture noise or specific patterns in the training data that do not exist in the broader population.
+    
+==> Here are three different options to address the overfitting problem:
+    
+1)Regularization:-  Regularization is a technique used to prevent overfitting by adding a penalty term to the model's objective function.
+==> Regularization methods such as L1 (Lasso) or L2 (Ridge) regularization can help control the model's complexity and improve its generalization by shrinking the learned parameters.
+        
+2)Cross-Validation:- Cross-validation is a technique to assess the model's performance on unseen data and estimate how well it will generalize.
+==> This helps to identify overfitting by measuring the model's performance on different subsets of the data and obtaining more reliable estimates of its generalization capability.
+        
+3)Increasing Training Data:-  Insufficient or unrepresentative training data can contribute to overfitting. 
+==> Obtaining more data, if feasible, can help the model better capture the underlying patterns and reduce overfitting.
+        
+
+16.What exactly is a test set, and why would you need one?
+
+==> A test set, also known as a validation set.
+==> Is a portion of the available data that is held out from the training process and used to evaluate the performance of a machine learning model. 
+    
+==> The test set is essential for several reasons: Performance Evaluation,Model Selection and Tuning,Preventing Overfitting
+
+
+
+17.What is a validation set ?
+
+==> The validation set is used to fine-tune the model and make decisions during the model development process, including hyperparameter tuning and model selection. 
+==> It helps assess the model's performance on unseen data and provides an estimate of how well the model is likely to generalize to new examples.
+
+    
+    
+18.What precisely is the train-dev kit, when will you need it, how do you put it to use
+
+==> It may be a specific terminology or concept used in a particular context or by a specific organization or individual.
+==> It seems you are referring to a combination of the training set and a development/validation set.
+ 
+==> The purpose of the train-dev kit, which is an amalgamation of the training set and a development/validation set, is to aid in model development, hyperparameter tuning, and performance assessment during the iterative process of model building.
+
+
+
+19.What could go wrong if you use the test set to tune hyperparameters?
+
+==> Here are some potential issues that can arise when the test set is used for hyperparameter tuning:
+    
+    1)Data Leakage
+    2)Overfitting to the Test Set 
+    3)Lack of Unbiased Performance Estimate
