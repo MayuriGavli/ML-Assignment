@@ -56,3 +56,72 @@
   Testing	Evaluate - generalization on unseen data
   Deployment	- Generalization determines how well the model performs in real life
 
+10. What is classification, exactly? What are the main distinctions between classification and regression?
+=   Classification is a supervised learning task where the goal is to predict a discrete label for given input data.
+    Example: Input: An email , Output (Class): "Spam" or "Not Spam"
+
+    Classification vs. Regression
+    Feature	            Classification	                Regression
+    Output Type	        Discrete labels or categories	  Continuous numerical values
+    Examples	          Spam detection,                 House price prediction, temperature forecasting
+                        disease prediction, image class
+    Goal	              Assign input to one of          Estimate a numeric value
+                        several classes	
+    Loss Function	      Cross-entropy, hinge loss	      Mean Squared Error (MSE), MAE
+    Evaluation Metrics	Accuracy, Precision,            RMSE, R² score, MAE
+                        Recall, F1-score	
+    
+    
+11. What is regression, and how does it work? Give an example of a real-world problem that was solved using regression.
+=   Regression is a type of supervised learning where the goal is to predict a continuous numerical value based on input features.
+    How Does Regression Work?
+      Input Data: You have a dataset with input features (independent variables) and a numerical output (target).
+      Model Training: The model learns the relationship between inputs and output.
+      Prediction: For new inputs, it predicts a numeric value.
+
+  Real-World Problem Solved Using Regression
+      Problem: Predicting House Prices
+      Solution:
+          Use Multiple Linear Regression to model the price based on these features.
+          Helps users estimate fair market value and make smart purchase decisions.
+
+
+12. Describe the clustering mechanism in detail.
+=   Clustering is an unsupervised learning technique where the goal is to group a set of objects into clusters such that:
+    Objects in the same cluster are more similar to each other
+    Objects in different clusters are more dissimilar
+
+    Clustering helps in finding hidden patterns in data without using labeled output.
+
+    Clustering mechanism: 
+      Input Data :- You have raw data without any labels (e.g., customer profiles, document texts, or images).
+
+      Feature Extraction :- Convert data into a numerical format (e.g., vectors for text or pixel values for images).
+
+      Similarity Measurement :- Compute how similar data points are using distance metrics like: Euclidean distance , Cosine similarity 
+
+      Apply Clustering Algorithm :- Use algorithms (like K-Means) to group similar data points together.
+
+      Output :- Data points are assigned cluster labels (e.g., Cluster 0, Cluster 1, etc.).
+
+13. Make brief observations on two of the following topics:
+
+i. Machine learning algorithms are used
+ii. Studying under supervision
+iii. Studying without supervision
+iv. Reinforcement learning is a form of learning based on positive reinforcement.
+
+= ✅ i. Machine learning algorithms are used
+Machine learning algorithms are used to analyze data, recognize patterns, and make decisions with minimal human intervention. 
+They are applied in areas like fraud detection, recommendation systems, speech and image recognition, and autonomous vehicles, helping systems learn from experience and improve over time.
+
+✅ iii. Studying without supervision 
+Unsupervised learning involves learning from data without labeled outputs. 
+The algorithm tries to discover hidden structures, such as grouping similar items (clustering) or reducing dimensionality (PCA). 
+It's useful in cases like market segmentation or anomaly detection, where no predefined answers are available.
+
+
+
+
+
+
