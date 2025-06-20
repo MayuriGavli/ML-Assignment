@@ -1,6 +1,58 @@
 1. What is the concept of human learning? Please give two examples.
 = Human learning is the process through which individuals acquire new knowledge, skills, behaviors, attitudes, or values. It involves experience, observation, practice, and instruction. 
   The brain processes and stores information, which can then influence future thoughts and actions. Human learning can be intentional or incidental.
-  Example :- Learning to Ride a Bicycle, Learning a Language
+  Example :- Learning to Ride a Bicycle, Learning a Language.
+ 
+3. What is machine learning, and how does it work? What are the key responsibilities of machine learning?
+= Machine Learning is a subset of Artificial Intelligence that enables systems to automatically learn from data and improve their performance over time without being explicitly programmed.
+    Machine learning works in four basic steps:
+      Data Collection
+      Data Preprocessing
+      Model Training
+      Evaluation & Prediction
+    Key Responsibilities of Machine Learning:- Prediction,Classification,Clustering,Recommendation,Decision Making
 
+4. Define the terms "penalty" and "reward" in the context of reinforcement learning.
+= Reward: A positive signal given to the agent when it performs a desirable or correct action. It encourages the agent to repeat that action in similar situations in the future.
+  Example: In a game, the agent receives +10 points for reaching the goal :— this is a reward.
+
+  Penalty: A negative signal given to the agent when it takes an undesirable or incorrect action. It discourages the agent from repeating that action in the future.
+  Example: In a self-driving car simulation, the agent gets a penalty of −100 if it crashes into an obstacle.
+
+5.Explain the term "learning as a search"?
+= "Learning as a search" is a concept in machine learning where the process of learning is viewed as a search through a space of possible hypotheses or models to find the one that best explains the data.
+  Example:-
+  The hypothesis space includes all possible rules like:
+  “If the email contains ‘free money’, label it as spam” or
+  “If the sender is unknown and the subject is all caps, mark as spam”.
+
+6. What are the various goals of machine learning? What is the relationship between these and human learning?
+= Goals of Machine Learning:- 
+   1. Prediction
+      Goal: Predict future or unknown values based on past data.
+      Example: Predicting house prices, weather forecasts, or stock trends.
+
+   2. Classification
+      Goal: Assign inputs into predefined categories or classes.
+      Example: Spam vs. non-spam emails, disease diagnosis (positive/negative).
+
+   3. Clustering
+      Goal: Group similar data points without labels.
+      Example: Customer segmentation, grouping news articles by topic.
+
+7. Illustrate the various elements of machine learning using a real-life illustration.
+= Real-Life Illustration: Email Spam Detection
+  Elements:- Data,Features,Model,Learning Algorithm,Training,Testing,Prediction,Evaluation,Goal
+
+8. Provide an example of the abstraction method.
+= Abstraction is the process of simplifying complex real-world problems by focusing on essential features and ignoring irrelevant details.
+  Real-Life Example of Abstraction: Spam Email Detection
+
+9. What is the concept of generalization? What function does it play in the machine learning process?
+= Generalization is the ability of a machine learning model to perform well on new, unseen data after being trained on a limited set of examples.
+  Role in the Machine Learning Process:-
+  Training - Learn patterns from data
+  Validation - Tune model parameters to improve generalization
+  Testing	Evaluate - generalization on unseen data
+  Deployment	- Generalization determines how well the model performs in real life
 
