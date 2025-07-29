@@ -1,0 +1,166 @@
+1. What are the key tasks involved in getting ready to work with machine learning modeling?
+
+1. Define the Problem
+Understand the business objective: Classification, regression, clustering, etc.
+Determine output type: Categorical (labels), numerical (values), or clusters.
+2. Gather the Data
+Collect data from various sources: databases, APIs, files, sensors, etc.
+Check data availability and relevance: Is it sufficient and appropriate for the problem?
+3. Explore and Understand the Data (EDA)
+Visualize data distributions, correlations, outliers.
+Summarize using statistical measures (mean, median, std, etc.).
+Understand data types: Categorical, numerical, time-series, etc.
+4. Clean and Preprocess the Data
+Handle missing values: Remove or impute.
+Correct data types and formatting issues.
+Remove duplicates, fix inconsistencies.
+5. Feature Engineering
+Select relevant features: Based on domain knowledge or analysis.
+Create new features: Ratios, interactions, bins, etc.
+Encode categorical variables: One-hot encoding, label encoding.
+Normalize or scale data: StandardScaler, MinMaxScaler for numerical features.
+6. Split the Data
+Training, validation, test sets: Typically 60-20-20 or 70-15-15.
+Ensure stratification for imbalanced classification problems.
+7. Choose the Right ML Algorithm
+Based on problem type and data size:
+Classification: Logistic Regression, SVM, Random Forest, XGBoost
+Regression: Linear Regression, Decision Trees, Gradient Boosting
+Clustering: K-Means, DBSCAN, Hierarchical
+Consider baseline models for comparison.
+8. Set Up the Environment
+Install tools/libraries: Python, Scikit-learn, pandas, NumPy, Jupyter, etc.
+Use version control (Git) and virtual environments (conda, venv).
+9. Plan for Model Evaluation
+Choose evaluation metrics:
+Classification: Accuracy, F1-score, ROC AUC
+Regression: MSE, MAE, R²
+Cross-validation strategy: k-fold, stratified k-fold, etc.
+10. Prepare for Deployment (Optional but recommended early)
+Understand integration requirements: APIs, batch vs real-time.
+Track and version models/data: MLflow, DVC, Git.
+Think about performance, scalability, and monitoring.
+.................................................................
+2. What are the different forms of data used in machine learning? Give a specific example for each of them.
+
+1. Structured Data :- Tabular data with rows and columns. Each column has a defined data type. Used in: Classification, regression, time-series forecasting.
+Example:   ID	  Age	Income	Loan Approved
+           1	  28	40,000	Yes
+
+2. Unstructured Data :- Data without a predefined structure or format. Used in: NLP, computer vision, audio processing.
+Example: Text: Customer reviews → "The product quality is excellent."
+
+3. Semi-Structured Data :- Not in tabular form but still organized with tags or markers. Used in: Information extraction, recommender systems.
+Example:- {
+  "user": "John",
+  "email": "john@example.com",
+  "purchases": ["item1", "item2"]
+}
+.................................................................
+
+3. Distinguish:
+1. Numeric vs. categorical attributes
+| **Aspect**             | **Numeric Attributes**                        | **Categorical Attributes**                       |
+| ---------------------- | --------------------------------------------- | ------------------------------------------------ |
+| **Definition**         | Quantitative values that represent magnitude. | Qualitative values that represent categories.    |
+| **Types**              | - Integer<br>- Float (continuous)             | - Nominal (no order)<br>- Ordinal (ordered)      |
+| **Examples**           | - Age = 25<br>- Salary = 55,000               | - Gender = "Male"<br>- Education = "High School" |
+| **Operations**         | Can perform arithmetic (mean, std, etc.)      | Cannot apply arithmetic directly                 |
+| **Encoding Required?** | No (used as-is)                               | Yes (e.g., One-hot, Label encoding)              |
+| **Used in**            | Regression, clustering, classification        | Mostly classification and rule-based models      |
+
+
+2. Feature selection vs. dimensionality reduction
+
+| **Aspect**              | **Feature Selection**                                          | **Dimensionality Reduction**                                    |
+| ----------------------- | -------------------------------------------------------------- | --------------------------------------------------------------- |
+| **Goal**                | Select most relevant features from the original set            | Transform data into a lower-dimensional space                   |
+| **How it works**        | Keeps original features; removes less important ones           | Creates new features (combinations)                             |
+| **Output**              | Subset of original features                                    | New features (linear or nonlinear combinations)                 |
+| **Interpretability**    | High (original features retained)                              | Low (transformed features lose original meaning)                |
+| **Examples of Methods** | - Filter (Chi-square)<br>- Wrapper (RFE)<br>- Embedded (Lasso) | - PCA (Principal Component Analysis)<br>- t-SNE, UMAP           |
+| **When to use**         | When interpretability is important                             | When performance/speed matters and high-dimensional data exists |
+
+.................................................................
+
+4. Make quick notes on any two of the following:
+1. The histogram
+1. Histogram :- To visualize the distribution of a single numeric variable. Bar graph showing frequency of data within intervals (bins).Example: Visualizing age distribution of users.
+  Key Points: X-axis: Data ranges (bins) , Y-axis: Frequency/count of data points
+2. Use a scatter plot :- To visualize the relationship between two numeric variables. Dots representing observations in a 2D space.
+  Key Points: X-axis and Y-axis: Two continuous variables
+
+.................................................................
+
+5. Why is it necessary to investigate data? Is there a discrepancy in how qualitative and quantitative data are explored?
+   Investigating data—also called Exploratory Data Analysis (EDA)—is a crucial first step in any machine learning or data science project
+    | **Aspect**                      | **Quantitative Data**                        | **Qualitative Data**                     
+| ------------------------------- | -------------------------------------------- | ------------------------------------------ |
+| **Nature**                      | Numeric, continuous/discrete                 | Categorical (nominal or ordinal)           |
+| **Summary Measures**            | Mean, median, std. deviation, percentiles    | Frequency count, mode, proportion          |
+| **Visualization Tools**         | Histogram, boxplot, scatter plot, line chart | Bar chart, pie chart, countplot            |
+| **Relationships Explored With** | Correlation, scatter plots                   | Cross-tabulations, chi-square tests        |
+| **Encoding Needed?**            | No (used as-is)                              | Yes (one-hot, label encoding for modeling) |
+
+.................................................................
+
+6. What are the various histogram shapes? What exactly are ‘bins'?
+  A histogram is a graphical representation of the distribution of a numeric dataset. It divides the entire range of values into intervals called bins, and counts how many data points fall into each bin.
+  Bins are consecutive, non-overlapping intervals of a variable’s range. Each bin shows the frequency of data points that fall within its range. Think of them like “buckets” that group similar values together.
+
+  Example: If you're plotting ages of students: Bin 1: 10–19 years , Bin 2: 20–29 years , Bin 3: 30–39 years.
+  Common Histogram Shapes:Normal (Bell-shaped) , Skewed Right (Positive) , Skewed Left (Negative) , Bimodal	 , Uniform (Flat)	, Multimodal
+
+.................................................................
+
+7. How do we deal with data outliers?
+  Outliers are data points that are significantly different from most other observations. They can distort statistical analyses and mislead machine learning models.
+  If they are errors or irrelevant	= Delete the outlier rows
+  If outliers are extreme but valid =	Replace values beyond a threshold 
+  If data is skewed due to outliers	Apply log(), sqrt(), or Box-Cox transform
+  If you don’t want to remove any data	Use models less sensitive to outliers (e.g., Random Forest)
+
+.................................................................
+
+8. What are the various central inclination measures? Why does mean vary too much from median in certain data sets?
+
+   These are statistical measures that describe the center point  of a dataset.
+
+| **Measure** | **Definition**                       | **Use Case**                            |
+| ----------- | ------------------------------------ | --------------------------------------- |
+| **Mean**    | Sum of all values ÷ number of values | Best for symmetric (normal) data        |
+| **Median**  | Middle value when data is sorted     | Best for skewed data or with outliers   |
+| **Mode**    | Most frequently occurring value(s)   | Useful for categorical or discrete data |
+
+This typically happens in skewed data or data with outliers.
+| **Dataset (Income)**             | **Mean** | **Median** | **Reason**                                 |
+| -------------------------------- | -------- | ---------- | ------------------------------------------ |
+| [30k, 35k, 40k, 45k, 50k]        | 40k      | 40k        | Symmetric (mean ≈ median)                  |
+| [30k, 35k, 40k, 45k, 1,000,000]  | 230k     | 40k        | Skewed due to outlier → mean pulled higher |
+
+Mean is sensitive to extreme values (outliers).
+Median is robust — it resists the influence of outliers or skewness.
+In heavily skewed data, use median as a better central measure.
+
+.................................................................
+
+9. Describe how a scatter plot can be used to investigate bivariate relationships. Is it possible to find
+outliers using a scatter plot?
+
+How It Helps Investigate Bivariate Relationships:
+| ----------------------------- | --------------------------------------------------------------- |
+| **Direction of relationship** | Positive, negative, or no correlation                           |
+| **Strength of relationship**  | Tight cluster = strong relation, spread-out = weak relation     |
+| **Linearity**                 | If points follow a straight pattern, it's a linear relationship |
+| **Grouping or clusters**      | Identifies potential subgroups or patterns                      |
+
+✅ Yes! , You Find Outliers Using a Scatter Plot?
+Outliers appear as isolated points that don't follow the general pattern or cluster.
+Example: If most points lie along a diagonal trend, and one point is far above or below the trend line — it's likely an outlier.
+
+.................................................................
+
+10. Describe how cross-tabs can be used to figure out how two variables are related.
+
+  A cross-tab (cross tabulation) is a table that shows the relationship between two categorical variables by displaying their joint frequency — how often combinations of values occur together.
+  It Works: One variable is shown in rows, the other in columns. Each cell shows the count (or percentage) of data points for that row-column combination.
