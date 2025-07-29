@@ -53,7 +53,7 @@
   Divide the dataset into training, validation, and test sets.
   f. Dealing with Imbalanced Data
   Use techniques like SMOTE, undersampling, or class weighting if one class dominates.
-
+ ..................................................................................
 2. Describe quantitative and qualitative data in depth. Make a distinction between the two.
 
   Quantitative data refers to data that can be measured and expressed numerically. It represents quantities and allows mathematical operations like addition, subtraction, and averaging.
@@ -77,6 +77,7 @@
 | **Examples**    | Age, Salary, Height                    | Gender, Nationality, Feedback           |
 | **Use in ML**   | Features for regression/classification | Often encoded for models                |
 
+..................................................................................
 
 3. Create a basic data collection that includes some sample records. Have at least one attribute from each of the machine learning data types.
 
@@ -90,6 +91,7 @@
 | **Purchased\_Category** | Electronics         | Qualitative (Nominal)            | Categorical data                 |
 | **Feedback\_Text**      | "Great product..."  | Text (Unstructured)              | Needs NLP techniques to use      |
 
+..................................................................................
 
 4. What are the various causes of machine learning data issues? What are the ramifications?
 
@@ -105,6 +107,8 @@
 | Irrelevant features  | Increased training time, reduced model accuracy                            |
 | Incorrect labels     | Misleading training, model confusion                                       |
 | Data leakage         | Unrealistically high accuracy during training, poor real-world performance |
+
+..................................................................................
 
 5. Demonstrate various approaches to categorical data exploration with appropriate examples.
   1. Frequency Distribution
@@ -126,6 +130,8 @@
   plt.title("Department Share")
   plt.ylabel('')
   plt.show()
+
+..................................................................................
 
 6. How would the learning activity be affected if certain variables have missing values? Having said that, what can be done about it?
 
@@ -152,30 +158,138 @@
 | **7. Use algorithms that handle missing values** | Like XGBoost or LightGBM                                       | When you prefer model-side handling  |
 | **8. Indicator variable**                        | Add a new feature to flag missingness                          | When missingness itself carries info |
 
+..................................................................................
+
 7. Describe the various methods for dealing with missing data values in depth.
 
-8. What are the various data pre-processing techniques? Explain dimensionality reduction and
-function selection in a few words.
+1. Listwise Deletion (Removing Rows) :- Remove any row that contains one or more missing values
+Ex - df.dropna(inplace=True)
 
-9.
+2. Column Deletion :- Drop columns that have too many missing values.
+Ex - df.drop(columns=['ColumnName'], inplace=True)
 
-i. What is the IQR? What criteria are used to assess it?
+3. Mean/Median Imputation :- Replace missing values with the mean (for symmetric data) or median (for skewed data).
+Ex - from sklearn.impute import SimpleImputer
+     imputer = SimpleImputer(strategy='mean')  # or 'median'
+     df['Age'] = imputer.fit_transform(df[['Age']])
 
-ii. Describe the various components of a box plot in detail? When will the lower whisker
-surpass the upper whisker in length? How can box plots be used to identify outliers?
+4. Mode Imputation :- Fill missing values with the most frequent (mode) value.
+Ex - df['Gender'] = df['Gender'].fillna(df['Gender'].mode()[0])
+
+5. Constant/Custom Value Imputation :- Replace missing values with a constant value, like 0, Unknown, or -1.
+Ex - df['City'] = df['City'].fillna('Unknown')
+
+..................................................................................
+
+8. What are the various data pre-processing techniques? Explain dimensionality reduction and function selection in a few words.
+  
+  Common Data Preprocessing Techniques
+  1. Data Cleaning
+  Handle missing values (impute or remove)
+  Remove duplicates
+  Correct inconsistent formatting
+  Handle outliers
+  2. Data Transformation
+  Normalize or standardize numerical data
+  Log or power transformation to handle skewed data
+  Encode categorical data (Label Encoding, One-Hot Encoding)
+  3. Feature Engineering
+  Create new features from existing ones (e.g., extract year from date)
+  Binning (e.g., age groups)
+  Text vectorization (TF-IDF, Bag of Words)
+  4. Feature Scaling
+  Normalization: Scales data to a [0,1] range (MinMaxScaler)
+  Standardization: Mean = 0, SD = 1 (StandardScaler)
+  These are required for ML algorithms sensitive to magnitude (e.g., KNN, SVM, Logistic Regression)
+  5. Encoding Categorical Variables
+  Label Encoding: Converts categories to integers
+  One-Hot Encoding: Creates binary columns for each category
+  6. Outlier Handling
+  Z-score, IQR methods to detect outliers
+  Remove or cap values beyond threshold
+  7. Data Splitting
+  Split into training, validation, and test sets
+
+  
+  Dimensionality Reduction :- Reducing the number of features (dimensions) while preserving the essence or variance of the data.
+  use it  to :-  Avoid overfitting , Improve model speed , Reduce noise , Visualize high-dimensional data 
+  Common Techniques: PCA
+
+  Feature Selection :- Choosing the most relevant features from the dataset for the model — not reducing dimensions but eliminating irrelevant or redundant ones.
+  Benefits:- Improves model performance , Reduces overfitting
+
+..................................................................................
+
+9.i. What is the IQR? What criteria are used to assess it?
+
+IQR = Interquartile Range :- The Interquartile Range (IQR) is a measure of statistical dispersion. It shows the range of the middle 50% of a dataset, and it helps identify how spread out values are.
+Formula: IQR = Q3 − Q1
+Q1 (1st Quartile): 25th percentile (25% of values lie below this point)
+Q3 (3rd Quartile): 75th percentile (75% of values lie below this point)
+It is Assessed :- Detect outliers , Understand data spread , Compare variability across datasets
+
+Outlier Detection Criteria: An observation is considered an outlier if it falls: Below: Q1 − 1.5 × IQR , Above: Q3 + 1.5 × IQR
+
+ii. Describe the various components of a box plot in detail? When will the lower whisker surpass the upper whisker in length? How can box plots be used to identify outliers?
+A box plot (or box-and-whisker plot) visually summarizes a dataset using 5-number statistics.
+
+| Component             | Description                                          |
+| --------------------- | ---------------------------------------------------- |
+| **Minimum**           | Lowest value (excluding outliers)                    |
+| **Q1 (1st Quartile)** | 25th percentile                                      |
+| **Median (Q2)**       | 50th percentile (middle of the data)                 |
+| **Q3 (3rd Quartile)** | 75th percentile                                      |
+| **Maximum**           | Highest value (excluding outliers)                   |
+| **Whiskers**          | Lines from box to min/max within the 1.5 × IQR range |
+| **Outliers**          | Points plotted individually outside whiskers         |
+
+ When Does the Lower Whisker Surpass the Upper Whisker in Length?
+  This happens when the data is negatively skewed (left-skewed):
+  The lower half of the data is more spread out.
+  So, Q1 − Min > Max − Q3, making the lower whisker longer.
+
+ How Can Box Plots Identify Outliers?
+  Any data point beyond:
+  Q1 − 1.5 × IQR or
+  Q3 + 1.5 × IQR
+  Will appear as dots or stars beyond the whiskers in the plot.
 
 10. Make brief notes on any two of the following:
 
-1. Data collected at regular intervals
+1️⃣ Data Collected at Regular Intervals (Time Series Data)
+This is sequential data recorded over uniform time gaps (e.g., hourly, daily, monthly).
 
-2. The gap between the quartiles
+Example: Daily stock prices, monthly sales.
 
-3. Use a cross-tab
+Used in trend analysis, forecasting, and seasonal pattern detection.
 
-1. Make a comparison between:
+Requires special techniques (e.g., ARIMA, LSTM).
+
+2️⃣ The Gap Between the Quartiles (IQR)
+Known as the Interquartile Range (IQR).
+
+Formula: IQR = Q3 − Q1
+
+Represents the spread of the middle 50% of data.
+
+Used to identify outliers and measure data dispersion.
+
 
 1. Data with nominal and ordinal values
+| Feature          | Nominal              | Ordinal                                |
+| ---------------- | -------------------- | -------------------------------------- |
+| Meaning          | Labels or categories | Categories with a **meaningful order** |
+| Order            | No order             | Has a natural order                    |
+| Example          | Gender, Country      | Satisfaction level (Low < Med < High)  |
+| Numeric relation | Not meaningful       | Rank is meaningful                     |
+
 
 2. Histogram and box plot
+| Metric               | Mean (Average)                  | Median                       |
+| -------------------- | ------------------------------- | ---------------------------- |
+| Definition           | Sum of all values / total count | Middle value of sorted data  |
+| Affected by outliers | Yes, highly                     | No, robust to outliers       |
+| Best for             | Symmetric data                  | Skewed or data with outliers |
+| Example              | Mean of \[1, 2, 100] = 34.33    | Median of \[1, 2, 100] = 2   |
 
-3. The average and median
+
