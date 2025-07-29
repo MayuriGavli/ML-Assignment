@@ -1,0 +1,181 @@
+1. What are the key tasks that machine learning entails? What does data pre-processing imply?
+
+  Machine Learning (ML) involves several core tasks across its lifecycle. These include:
+  
+  a. Problem Definition
+  Clearly define what problem you're trying to solve (e.g., classification, regression, clustering).
+  Understand the goals, constraints, and success criteria.
+  b. Data Collection
+  Gather raw data from sources such as databases, APIs, sensors, or web scraping.
+  c. Data Preprocessing
+  Clean and prepare the data (more detail below).
+  Handle missing values, outliers, duplicates, etc.
+  d. Exploratory Data Analysis (EDA)
+  Analyze the structure, trends, and patterns in the data.
+  Use visualizations and statistics to understand variable relationships.
+  e. Feature Engineering
+  Create, modify, or select features (variables) to improve model performance.
+  Convert categorical variables to numerical ones, normalize data, etc.
+  f. Model Selection
+  Choose an appropriate algorithm (e.g., decision tree, SVM, neural network) based on the task and data type.
+  g. Model Training
+  Train the model on the training data.
+  Adjust weights/parameters based on loss functions.
+  h. Model Evaluation
+  Test the model using metrics like accuracy, precision, recall, RMSE, etc.
+  Validate using cross-validation or test datasets.
+  i. Hyperparameter Tuning
+  Optimize model parameters (e.g., learning rate, depth of trees) using grid search or random search.
+  j. Model Deployment
+  Integrate the trained model into a production system (e.g., web app, API).
+  k. Monitoring and Maintenance
+  Monitor the model’s performance over time and retrain when needed due to data drift or concept drift.
+  
+  Data preprocessing is a crucial step in the ML pipeline that involves transforming raw data into a usable format for modeling. It includes:
+  
+  a. Data Cleaning
+  Handle missing values (e.g., impute with mean/median or drop).
+  Remove duplicates.
+  Correct inconsistent formats or typos.
+  b. Data Transformation
+  Normalization/Standardization: Scale numeric features to bring them to a common range.
+  Encoding Categorical Variables:
+  One-hot encoding
+  Label encoding
+  c. Feature Extraction & Selection
+  Remove irrelevant or redundant features.
+  Create new features (e.g., from dates or text).
+  Select important features based on correlation or model importance.
+  d. Handling Outliers
+  Identify outliers using box plots, Z-scores, or IQR.
+  Choose to remove or cap/floor them depending on impact.
+  e. Data Splitting
+  Divide the dataset into training, validation, and test sets.
+  f. Dealing with Imbalanced Data
+  Use techniques like SMOTE, undersampling, or class weighting if one class dominates.
+
+2. Describe quantitative and qualitative data in depth. Make a distinction between the two.
+
+  Quantitative data refers to data that can be measured and expressed numerically. It represents quantities and allows mathematical operations like addition, subtraction, and averaging.
+  Characteristics: Numerical , Objective and measurable , Can be used to generate statistics and graphs
+  📚 Types of Quantitative Data:
+  Discrete Data: Countable numbers , No decimals or fractions , Example: Number of students in a class (e.g., 25)
+  Continuous Data: Can take any value within a range , Includes decimals and fractions , Example: Height of students (e.g., 5.8 feet)
+
+  Qualitative Data (also called categorical data) refers to non-numeric data that describes qualities or categories. It captures attributes, labels, or classifications.
+  Characteristics: Cannot be measured numerically , Usually grouped into categories
+  📚 Types of Qualitative Data:
+  Nominal Data: Categories with no natural order , Example: Blood type (A, B, AB, O)
+  Ordinal Data: Categories with a meaningful order but not measurable distances , Example: Education level (High School < Bachelor < Master < PhD)
+
+| Feature         | Quantitative Data                      | Qualitative Data                        |
+| --------------- | -------------------------------------- | --------------------------------------- |
+| **Nature**      | Numerical                              | Categorical / Descriptive               |
+| **Measurement** | Measurable in units                    | Not measured, just labeled              |
+| **Operations**  | Can perform math operations            | Cannot do math (only counting/grouping) |
+| **Types**       | Discrete, Continuous                   | Nominal, Ordinal                        |
+| **Examples**    | Age, Salary, Height                    | Gender, Nationality, Feedback           |
+| **Use in ML**   | Features for regression/classification | Often encoded for models                |
+
+
+3. Create a basic data collection that includes some sample records. Have at least one attribute from each of the machine learning data types.
+
+| Attribute Name          | Example Value       | ML Data Type                     | Explanation                      |
+| ----------------------- | ------------------- | -------------------------------- | -------------------------------- |
+| **Customer\_ID**        | C001                | Identifier (ignored in training) | Unique ID, not used for learning |
+| **Age**                 | 24                  | Quantitative (Numeric)           | Continuous variable              |
+| **Gender**              | Male, Female, Other | Qualitative (Nominal)            | No natural order                 |
+| **Purchase\_Amount**    | 1250.50             | Quantitative (Numeric)           | Continuous variable              |
+| **Satisfaction\_Level** | High, Medium, Low   | Qualitative (Ordinal)            | Has logical order                |
+| **Purchased\_Category** | Electronics         | Qualitative (Nominal)            | Categorical data                 |
+| **Feedback\_Text**      | "Great product..."  | Text (Unstructured)              | Needs NLP techniques to use      |
+
+
+4. What are the various causes of machine learning data issues? What are the ramifications?
+
+| Data Issue           | Ramification/Impact                                                        |
+| -------------------- | -------------------------------------------------------------------------- |
+| Missing values       | Model may fail to train or give biased results                             |
+| Noisy/outlier data   | Poor model generalization, increased error                                 |
+| Duplicate records    | Skewed statistics and overfitting                                          |
+| Format inconsistency | Errors during data loading, preprocessing, or analysis                     |
+| Class imbalance      | Biased predictions toward the majority class                               |
+| Biased data          | Discriminatory results, ethical concerns, regulatory risks                 |
+| Outdated data        | Irrelevant predictions, business losses                                    |
+| Irrelevant features  | Increased training time, reduced model accuracy                            |
+| Incorrect labels     | Misleading training, model confusion                                       |
+| Data leakage         | Unrealistically high accuracy during training, poor real-world performance |
+
+5. Demonstrate various approaches to categorical data exploration with appropriate examples.
+  1. Frequency Distribution
+  import pandas as pd
+  data = pd.DataFrame({
+    'Department': ['Sales', 'HR', 'Sales', 'IT', 'HR', 'IT', 'Sales']
+  })
+  print(data['Department'].value_counts())
+
+  2. Bar Plot
+  import seaborn as sns
+  import matplotlib.pyplot as plt
+  sns.countplot(x='Department', data=data)
+  plt.title("Department Distribution")
+  plt.show()
+
+  3. Pie Chart
+  data['Department'].value_counts().plot.pie(autopct='%1.1f%%')
+  plt.title("Department Share")
+  plt.ylabel('')
+  plt.show()
+
+6. How would the learning activity be affected if certain variables have missing values? Having said that, what can be done about it?
+
+  When certain variables have missing values, it can significantly affect the learning process, model accuracy, and generalization. Here's how:
+  1. Training Failures
+  Many ML algorithms cannot handle missing values directly and will throw errors.
+  2. Biased Learning
+  If missing values are unevenly distributed (e.g., mostly from one group), models may learn biased patterns.  
+  3. Loss of Information
+  Removing rows with missing data reduces the amount of training data, especially harmful in small datasets.
+  4. Incorrect Statistics
+  Mean, variance, correlation, etc., become misleading when calculated on incomplete data.
+  5. Skewed Feature Importance
+  Features with missing values may appear less useful to the model, even if they are important when complete.
+
+  | Strategy                                         | Description                                                    | When to Use                          |
+| ------------------------------------------------ | -------------------------------------------------------------- | ------------------------------------ |
+| **1. Remove rows**                               | Drop rows with missing values                                  | When missing <5% and data is large   |
+| **2. Remove columns**                            | Drop columns with too many missing values                      | When column is >50% missing          |
+| **3. Imputation (mean/median)**                  | Fill missing values with average or middle value of the column | For numeric, symmetric distributions |
+| **4. Mode imputation**                           | Use most frequent value                                        | For categorical data                 |
+| **5. Predictive imputation**                     | Use models (e.g., KNN, regression) to estimate missing values  | When high accuracy is needed         |
+| **6. Constant or "Unknown"**                     | Fill with a placeholder (e.g., "Unknown")                      | For nominal categorical variables    |
+| **7. Use algorithms that handle missing values** | Like XGBoost or LightGBM                                       | When you prefer model-side handling  |
+| **8. Indicator variable**                        | Add a new feature to flag missingness                          | When missingness itself carries info |
+
+7. Describe the various methods for dealing with missing data values in depth.
+
+8. What are the various data pre-processing techniques? Explain dimensionality reduction and
+function selection in a few words.
+
+9.
+
+i. What is the IQR? What criteria are used to assess it?
+
+ii. Describe the various components of a box plot in detail? When will the lower whisker
+surpass the upper whisker in length? How can box plots be used to identify outliers?
+
+10. Make brief notes on any two of the following:
+
+1. Data collected at regular intervals
+
+2. The gap between the quartiles
+
+3. Use a cross-tab
+
+1. Make a comparison between:
+
+1. Data with nominal and ordinal values
+
+2. Histogram and box plot
+
+3. The average and median
